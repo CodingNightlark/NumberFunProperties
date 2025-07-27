@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {isPrime, isHappy, isTaxicab, isPerfect} from './Math'
+import {isPrime, isHappy, isTaxicab, isPerfect, isAbundant, isSemiPerfect, isWeird, isTriangular} from './Math.jsx'
 import './App.css'
 
 function App() {
@@ -9,6 +9,10 @@ function App() {
     const [isHappyNumber, setIsHappyNumber] = useState(false)
     const [isTaxicabNumber, setIsTaxicabNumber] = useState(false)
     const [isPerfectNumber, setIsPerfectNumber] = useState(false)
+    const [isAbundantNumber, setIsAbundantNumber] = useState(false)
+    const [isSemiPerfectNumber, setIsSemiPerfectNumber] = useState(false)
+    const [isWeirdNumber, setIsWeirdNumber] = useState(false)   
+    const [isTriangularNumber, setIsTriangularNumber] = useState(false)
 
     function checkNumberProperties() {
         const number = parseInt(numberToCheck, 10)
@@ -16,12 +20,20 @@ function App() {
         setIsHappyNumber(isHappy(number))
         setIsTaxicabNumber(false) // Placeholder for future implementation
         setIsPerfectNumber(isPerfect(number)) 
+        setIsWeirdNumber(isWeird(number))
+        setIsAbundantNumber(isAbundant(number))
+        setIsSemiPerfectNumber(isSemiPerfect(number))
+        setIsTriangularNumber(isTriangular(number))
     }
-    
+
 
   return (
     <>
-    <div> <h1>Number Fun Properties</h1>
+    <head>
+        <title>Number Fun </title>
+        <link rel="stylesheet" href="./App.css" />
+    </head>
+    <div> <h1>Number Fun</h1>
          </div>
     <div className = "input">
         <label>
@@ -33,15 +45,19 @@ function App() {
         </label>
         
     </div>
-    <div className = "output">
+    <div className = "output">   
         <h2>Results:</h2>
         <p>{numberToCheck} is {isPrimeNumber ? '' : 'not '}a prime number.</p>
         <p>{numberToCheck} is {isHappyNumber ? '' : 'not '}a happy number.</p>
         <p>{numberToCheck} is {isPerfectNumber ? '' : 'not '} a perfect number. </p>
+        <p>{numberToCheck} is {isSemiPerfectNumber ? '' : 'not' } a semi-perfect number. </p>
+        <p>{numberToCheck} is {isTriangularNumber ? '' : 'not' } a triangular number.</p>
+        <p>{numberToCheck} is {isAbundantNumber ? '' : 'not' } an abundant number.</p>
+        <p>{numberToCheck} is {isWeirdNumber ? '' : 'not' } a weird number.</p>
     </div>
     </>
   )
-}
+} 
 
 
 export default App
